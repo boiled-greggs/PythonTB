@@ -1,0 +1,190 @@
+92:    def __init__(self,dim_k,dim_r,lat=None,orb=None,per=None,nspin=1):
+
+
+188:    def set_onsite(self,onsite_en,ind_i=None,mode="set"):
+
+
+315:    def set_hop(self,hop_amp,ind_i,ind_j,ind_R=None,mode="set",allow_conjugate_pair=False):
+
+
+528:    def _val_to_block(self,val):
+
+
+573:    def display(self):
+Displays information about the tight binding model defined already
+ME
+
+628:    def visualize(self,dir_first,dir_second=None,eig_dr=None,draw_hoppings=True,ph_color="black"):
+Uses self and defines new parameters using variables in self to create visualization of the
+system defined in tb_model
+ME
+
+730:        def proj(v):
+
+
+739:        def to_cart(red):
+
+
+756:        def color_to_phase(ph):
+
+
+854:    def get_num_orbitals(self):
+
+
+858:    def get_orb(self):
+
+
+862:    def get_lat(self):
+
+
+866:    def _gen_ham(self,k_input=None):
+
+
+919:    def _sol_ham(self,ham,eig_vectors=False):
+
+
+947:    def solve_all(self,k_list=None,eig_vectors=False):
+
+
+1073:    def solve_one(self,k_point=None,eig_vectors=False):
+
+
+1097:    def cut_piece(self,num,fin_dir,glue_edgs=False):
+
+
+1225:    def reduce_dim(self,remove_k,value_k):
+
+reduces the dimensionality of the system – keeps one vector constant and constrains to another
+
+ME
+
+
+1305:    def make_supercell(self, sc_red_lat, return_sc_vectors=False, to_home=True):
+
+makes a supercell tight binding model of the whatever current model
+ME
+
+1378:        def to_red_sc(red_vec_orig):
+
+
+1494:    def _shift_to_home(self):
+
+
+1520:    def k_uniform_mesh(self,mesh_size):
+
+returns a grid of k points in the periodic directions of the model
+read
+
+1591:    def k_path(self,kpts,nk,report=True):
+
+
+1756:    def ignore_position_operator_offdiagonal(self):
+
+
+1762:    def position_matrix(self, evec, dir):
+
+
+1843:    def position_expectation(self,evec,dir):
+
+
+1890:    def position_hwf(self,evec,dir,hwf_evec=False,basis="orbital"):
+
+
+2099:    def __init__(self,model,mesh_arr):
+
+defines all the parameters needed to get wavefunction array and calculate berry phase etc
+ME
+
+2125:    def solve_on_grid(self,start_k):
+
+
+2221:    def __check_key(self,key):
+
+
+2238:    def __getitem__(self,key):
+
+
+2244:    def __setitem__(self,key,value):
+
+
+2250:    def impose_pbc(self,mesh_dir,k_dir):
+
+i.e. impose periodic boundary conditions along the array of wave functions. ! this is done automatically when calling solve_on_grid. mesh_dir defines the direction along which to impose the conditions. k_dir defined between 0 and k-dimension – 1, corresponding to k-vector in the Brillouin zone.
+M
+
+2327:    def impose_loop(self,mesh_dir):
+
+
+2370:    def berry_phase(self,occ,dir=None,contin=True,berry_evals=False):
+
+
+2559:    def position_matrix(self, key, occ, dir):
+M
+
+2570:    def position_expectation(self, key, occ, dir):
+
+
+2581:    def position_hwf(self, key, occ, dir, hwf_evec=False, basis="bloch"):
+
+
+2593:    def berry_flux(self,occ,dirs=None,individual_phases=False):
+
+
+2724:    def berry_curv(self,occ,individual_phases=False):
+
+
+2743:def k_path(kpts,nk,endpoint=True):
+
+
+2794:def _nicefy_eig(eval,eig=None):
+
+
+2807:def _nice_float(x,just,rnd):
+
+
+2809:def _nice_int(x,just):
+
+
+2811:def _nice_complex(x,just,rnd):
+
+
+2822:def _wf_dpr(wf1,wf2):
+
+
+2827:def _one_berry_loop(wf,berry_evals=False):
+
+
+2869:def _one_flux_plane(wfs2d):
+
+
+2896:def no_2pi(x,clos):
+
+
+2905:def _one_phase_cont(pha,clos):
+
+
+2919:def _array_phases_cont(arr_pha,clos):
+
+
+3074:    def __init__(self,path,prefix):
+
+
+3192:    def model(self,zero_energy=0.0,min_hopping_norm=None,max_distance=None,ignorable_imaginary_part=None):
+`
+M
+3334:    def dist_hop(self):
+
+
+3391:    def shells(self,num_digits=2):
+
+
+3431:    def w90_bands_consistency(self):
+
+
+3506:def _cart_to_red(tmp,cart):
+
+
+3521:def _red_to_cart(tmp,red):
+
+
+3530:def _offdiag_approximation_warning_and_stop():
